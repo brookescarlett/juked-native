@@ -3,6 +3,7 @@ import {NavigatorIOS, View, Text } from 'react-native'
 
 import Playlist from './Playlist'
 import UserList from './UserList'
+import Player from './Player'
 
 export default class Main extends Component{
   render(){
@@ -11,7 +12,7 @@ export default class Main extends Component{
         {/* <Filter /> */}
         <Playlist />
         <UserList />
-        {/* <Player /> */}
+        <Player />
       </View>
     )
   }
