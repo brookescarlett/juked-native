@@ -10,13 +10,20 @@ class Player extends Component {
     currentlyPlaying: ""
   }
 
-  componentWillReceiveProps = () => {
+  componentDidMount = () => {
+    setInterval(this.checkPlaying, 2000)
+  }
+
+  checkPlaying = () => {
+    console.log('here');
     let currentlyPlaying = ""
 
     var ref = firebase.database().ref().child(`${this.props.chatroom}`).child('songs')
     ref.orderByKey().limitToFirst(1).on("child_added", function(snapshot) {
       if (snapshot.val().currentlyPlaying === true) {
+        console.log(snapshot.val());
         currentlyPlaying = snapshot.val()
+        console.log(currentlyPlaying);
       }
     })
 
@@ -25,22 +32,21 @@ class Player extends Component {
     })
   }
 
-  // setBackground = () => {
-  //   let bgImg = document.getElementById('bg-img')
-  //   bgImg.style.backgroundImage = `url(${this.state.currentlyPlaying.datum.album.images[0].url})`
-  // }
-
   renderCurrentlyPlaying = () => {
     if (this.state.currentlyPlaying === "") {
     } else {
       return(
-          <View>
+          <View style={{marginTop: 300}}>
             <Image style={{width: 50, height: 50}} source={{uri: this.state.currentlyPlaying.datum.album.images[1].url}}/>
             <Text>{this.state.currentlyPlaying.song}</Text>
             <Text>{this.state.currentlyPlaying.artist}</Text>
           </View>
       )
     }
+  }
+
+  componentWillUnmount = () => {
+    clearInterval(setInterval(this.checkPlaying, 2000));
   }
 
 

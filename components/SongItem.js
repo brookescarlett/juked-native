@@ -43,7 +43,7 @@ class SongItem extends Component {
 
   render(){
     return(
-      <View>
+      <View style={{marginTop: 200}}>
         <Text>@{this.props.datum.user}</Text>
         <Text>{this.props.datum.song}</Text>
         <Text>{this.props.datum.artist}</Text>

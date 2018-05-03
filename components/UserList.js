@@ -40,7 +40,7 @@ class Userlist extends Component {
 
   render(){
     return(
-      <View>
+      <View style={{marginTop: 300}}>
         <Text>Users</Text>
         <Text>{this.state.dj !== "" ? `DJ: ${this.state.dj.name}` : "to play music, you'll need a dj!"}</Text>
         {this.renderUsers()}

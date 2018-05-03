@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux'
 import { SetDJ } from '../actions/actions.js'
 import { SetChatroom } from '../actions/actions.js'
 import { SetName } from '../actions/actions.js'
-import Main from './Main.js'
+import TabNavigator from './TabNavigator.js'
 
 import * as firebase from 'firebase'
 
@@ -38,8 +38,9 @@ class LogInForm extends Component {
 
   onForward = () => {
     const nextRoute = {
-      component: Main,
-      title: 'Main Screen'
+      component: TabNavigator,
+      title: 'juked.',
+      navigationBarHidden: false
     }
 
     this.props.navigator.resetTo(nextRoute)

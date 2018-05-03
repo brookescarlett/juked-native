@@ -30,7 +30,7 @@ export default class App extends React.Component {
         <NavigatorIOS
           initialRoute={{
             component: LogInForm,
-            title: 'Log In',
+            title: 'juked.'
           }}
           style={{flex: 1}}
         />

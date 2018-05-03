@@ -35,7 +35,7 @@ class Playlist extends Component {
 
   render(){
     return(
-      <View>
+      <View style={{marginTop: 200}}>
         <Text>Playlist</Text>
         {this.renderStore()}
       </View>
