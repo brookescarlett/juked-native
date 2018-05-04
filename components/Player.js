@@ -36,7 +36,7 @@ class Player extends Component {
     if (this.state.currentlyPlaying === "") {
     } else {
       return(
-          <View style={{marginTop: 300}}>
+          <View>
             <Image style={{width: 50, height: 50}} source={{uri: this.state.currentlyPlaying.datum.album.images[1].url}}/>
             <Text>{this.state.currentlyPlaying.song}</Text>
             <Text>{this.state.currentlyPlaying.artist}</Text>
@@ -52,7 +52,7 @@ class Player extends Component {
 
   render() {
     return(
-      <View>
+      <View style={{backgroundColor: 'black', height: 100}}>
         {this.state.currentlyPlaying !== "" ? this.renderCurrentlyPlaying() : null}
       </View>
     )

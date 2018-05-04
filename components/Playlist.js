@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {NavigatorIOS, View, TextInput, Button, Text, PropTypes } from 'react-native'
+import {ScrollView, View, Text, Image } from 'react-native'
 import { AddSong, AddSongForRecs, UpdateSong, RemoveSong} from '../actions/actions.js'
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -35,10 +35,20 @@ class Playlist extends Component {
 
   render(){
     return(
-      <View style={{marginTop: 200}}>
-        <Text>Playlist</Text>
-        {this.renderStore()}
-      </View>
+        <View style={{flex: 1, alignItems: 'center'}}>
+
+          <View style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
+            <Image source={require('./images/bg2.001.jpeg')} style={{resizeMode: 'cover'}}></Image>
+          </View>
+
+          <View style={{ flex: 1, backgroundColor: 'transparent'}}>
+            <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 92, fontWeight: 'bold', marginBottom: 16}}>Playlist</Text>
+            <ScrollView style={{ flex: 1, backgroundColor: 'transparent'}}>
+              {this.renderStore()}
+            </ScrollView>
+          </View>
+
+        </View>
     )
   }
 

@@ -6,6 +6,7 @@ import { SetDJ } from '../actions/actions.js'
 import { SetChatroom } from '../actions/actions.js'
 import { SetName } from '../actions/actions.js'
 import TabNavigator from './TabNavigator.js'
+import Main from './Main.js'
 
 import * as firebase from 'firebase'
 
@@ -40,7 +41,7 @@ class LogInForm extends Component {
     const nextRoute = {
       component: TabNavigator,
       title: 'juked.',
-      navigationBarHidden: false
+      barTintColor: 'rgb(30, 29, 70)'
     }
 
     this.props.navigator.resetTo(nextRoute)

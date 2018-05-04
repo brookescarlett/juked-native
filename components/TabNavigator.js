@@ -6,8 +6,10 @@ import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Playlist from './Playlist'
 import UserList from './UserList'
 import Player from './Player'
+import Filter from './Filter'
 
 export default TabNavigator({
+  Search: {screen: Filter},
   Playlist: { screen: Playlist },
   Users: { screen: UserList },
   Player: { screen: Player },
@@ -16,7 +18,10 @@ export default TabNavigator({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === 'Playlist') {
+        if (routeName === 'Search') {
+          iconName = `ios-search${focused ? '' : '-outline'}`;
+        }
+        else if (routeName === 'Playlist') {
           iconName = `ios-shuffle${focused ? '' : '-outline'}`;
         } else if (routeName === 'Users') {
           iconName = `ios-people${focused ? '' : '-outline'}`;
@@ -30,8 +35,11 @@ export default TabNavigator({
       },
     }),
     tabBarOptions: {
-      activeTintColor: 'purple',
-      inactiveTintColor: 'gray',
+      activeTintColor: 'white',
+      inactiveTintColor: 'grey',
+      style: {
+        backgroundColor: 'rgb(30, 29, 70)',
+      },
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',

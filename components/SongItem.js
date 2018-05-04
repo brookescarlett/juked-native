@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import * as firebase from 'firebase'
-
 import {NavigatorIOS, View, TextInput, Button, Text, PropTypes } from 'react-native'
 
 import Icon from 'react-native-vector-icons/Foundation'
@@ -43,18 +42,25 @@ class SongItem extends Component {
 
   render(){
     return(
-      <View style={{marginTop: 200}}>
-        <Text>@{this.props.datum.user}</Text>
-        <Text>{this.props.datum.song}</Text>
-        <Text>{this.props.datum.artist}</Text>
+      <View style={{ flex: 1, backgroundColor: 'transparent', width: 300, marginBottom: 8}}>
+        <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}>@{this.props.datum.user}</Text>
+        <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}>{this.props.datum.song}</Text>
+        <View style={{ flex: 1, backgroundColor: 'transparent', flexDirection: 'row'}}>
+          <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}>{this.props.datum.artist}</Text>
 
-        <Icon.Button name="like" backgroundColor="#3b5998" onPress={this.handleUpVote}>
-          <Text>{this.props.datum.upVote}</Text>
-        </Icon.Button>
+          <View style={{ flex: 1, backgroundColor: 'transparent', flexDirection: 'row', justifyContent: 'flex-end'}}>
 
-        <Icon.Button name="dislike" backgroundColor="#3b5998" onPress={this.handleDownVote}>
-          <Text>{this.props.datum.downVote}</Text>
-        </Icon.Button>
+            <Icon.Button name="like" backgroundColor="transparent" onPress={this.handleUpVote}>
+              <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}>{this.props.datum.upVote}</Text>
+            </Icon.Button>
+
+            <Icon.Button name="dislike" backgroundColor="transparent" onPress={this.handleDownVote}>
+              <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}t>{this.props.datum.downVote}</Text>
+            </Icon.Button>
+          </View>
+
+        </View>
+
       </View>
     )
   }
