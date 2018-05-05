@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
-import {NavigatorIOS, View, TextInput, Button, Text, PropTypes } from 'react-native'
+import {View, TextInput, Button, Text, PropTypes } from 'react-native'
 
 export default class User extends Component {
 
   render(){
     return(
       <View>
-        <Text>@{this.props.datum.name}</Text>
+        <Text style={{fontSize: 16, color: 'rgba(255, 255, 255, 0.9)', width: 300}}>@{this.props.datum.name}</Text>
       </View>
     )
   }

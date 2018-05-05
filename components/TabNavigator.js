@@ -11,7 +11,7 @@ import Filter from './Filter'
 export default TabNavigator({
   Search: {screen: Filter},
   Playlist: { screen: Playlist },
-  Users: { screen: UserList },
+  Guests: { screen: UserList },
   Player: { screen: Player },
 }, {
     navigationOptions: ({ navigation }) => ({
@@ -23,7 +23,7 @@ export default TabNavigator({
         }
         else if (routeName === 'Playlist') {
           iconName = `ios-shuffle${focused ? '' : '-outline'}`;
-        } else if (routeName === 'Users') {
+        } else if (routeName === 'Guests') {
           iconName = `ios-people${focused ? '' : '-outline'}`;
         } else if (routeName === 'Player') {
           iconName = `ios-play${focused ? '' : '-outline'}`;

@@ -36,10 +36,10 @@ class Player extends Component {
     if (this.state.currentlyPlaying === "") {
     } else {
       return(
-          <View>
-            <Image style={{width: 50, height: 50}} source={{uri: this.state.currentlyPlaying.datum.album.images[1].url}}/>
-            <Text>{this.state.currentlyPlaying.song}</Text>
-            <Text>{this.state.currentlyPlaying.artist}</Text>
+          <View style={{width: 300, flex: 1, alignItems: 'center'}}>
+            <Image style={{width: 300, height: 300}} source={{uri: this.state.currentlyPlaying.datum.album.images[1].url}}/>
+            <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 8, color: 'rgb(30, 29, 70)'}}>{this.state.currentlyPlaying.song}</Text>
+            <Text style={{fontSize: 16, color: 'rgba(255, 255, 255, 0.9)'}}>{this.state.currentlyPlaying.artist}</Text>
           </View>
       )
     }
@@ -52,8 +52,17 @@ class Player extends Component {
 
   render() {
     return(
-      <View style={{backgroundColor: 'black', height: 100}}>
-        {this.state.currentlyPlaying !== "" ? this.renderCurrentlyPlaying() : null}
+      <View style={{flex: 1, alignItems: 'center'}}>
+
+        <View style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
+          <Image source={require('./images/bg2.001.jpeg')} style={{resizeMode: 'cover'}}></Image>
+        </View>
+
+        <View style={{ flex: 1, backgroundColor: 'transparent'}}>
+          <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 92, fontWeight: 'bold', marginBottom: 16}}>Now Playing</Text>
+          {this.state.currentlyPlaying !== "" ? this.renderCurrentlyPlaying() : null}
+        </View>
+
       </View>
     )
   }
