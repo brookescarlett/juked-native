@@ -15,15 +15,12 @@ class Player extends Component {
   }
 
   checkPlaying = () => {
-    console.log('here');
     let currentlyPlaying = ""
 
     var ref = firebase.database().ref().child(`${this.props.chatroom}`).child('songs')
     ref.orderByKey().limitToFirst(1).on("child_added", function(snapshot) {
       if (snapshot.val().currentlyPlaying === true) {
-        console.log(snapshot.val());
         currentlyPlaying = snapshot.val()
-        console.log(currentlyPlaying);
       }
     })
 

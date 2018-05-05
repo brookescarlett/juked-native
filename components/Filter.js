@@ -16,12 +16,27 @@ class Playlist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: '  Enter a request to @theDJ'
+      filter: '  Enter a request to @theDJ',
+      dj: ''
      }
+  }
+
+  componentDidMount = () => {
+    this.getDJName()
   }
 
   sendToDJ = () => {
     this.fetchFunction(this.state.filter)
+  }
+
+  getDJName = () => {
+    firebase.database().ref().child(`${this.props.chatroom}`).child('users').orderByKey().on('child_added', snap => {
+      if (snap.val().dj === true) {
+        this.setState({
+          dj: snap.val().name
+        })
+      }
+    })
   }
 
   fetchFunction = (song) => {
@@ -36,7 +51,7 @@ class Playlist extends Component {
       hasBeenPlayed: false
     }, () => {
       AlertIOS.alert(
-        'Request sent to @theDJ!',
+        `Request sent to @${this.state.dj}`,
         `You have sent a request to play: ${song}`
       )
     })

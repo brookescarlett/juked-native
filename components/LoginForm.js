@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {NavigatorIOS, View, Image, TextInput, Text, PropTypes} from 'react-native'
+import {NavigatorIOS, TabBarIOS, View, Image, TextInput, Text, PropTypes} from 'react-native'
 import {Button, Footer, FooterTab, Icon} from 'native-base'
 import { connect } from 'react-redux'
 import {bindActionCreators} from 'redux'
@@ -7,10 +7,8 @@ import { SetDJ } from '../actions/actions.js'
 import { SetChatroom } from '../actions/actions.js'
 import { SetName } from '../actions/actions.js'
 import TabNavigator from './TabNavigator.js'
-import Main from './Main.js'
 
 import * as firebase from 'firebase'
-
 
 class LogInForm extends Component {
 
@@ -52,7 +50,7 @@ class LogInForm extends Component {
 
     return (
 
-      <View style={{flex: 1, alignItems: 'center'}}>
+      <View style={{flex: 1, alignItems: 'center', backgroundColor:' rgb(30, 29, 70)'}}>
 
         <View style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
           <Image source={require('./images/bg2.001.jpeg')} style={{resizeMode: 'cover'}}></Image>
@@ -75,6 +73,11 @@ class LogInForm extends Component {
           <Button block light onPress={this.onPressButton} style={{backgroundColor: 'rgb(30, 29, 70)', borderRadius: 100}}>
             <Text style={{color: 'rgba(255, 255, 255, 0.9)'}}>JOIN</Text>
           </Button>
+
+
+          <View>
+
+          </View>
 
         </View>
 
