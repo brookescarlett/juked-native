@@ -35,8 +35,8 @@ class Player extends Component {
       return(
           <View style={{width: 300, flex: 1, alignItems: 'center'}}>
             <Image style={{width: 300, height: 300}} source={{uri: this.state.currentlyPlaying.datum.album.images[1].url}}/>
-            <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 8, color: 'rgb(30, 29, 70)'}}>{this.state.currentlyPlaying.song}</Text>
-            <Text style={{fontSize: 16, color: 'rgba(255, 255, 255, 0.9)'}}>{this.state.currentlyPlaying.artist}</Text>
+            <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 8, color: 'rgb(30, 29, 70)', fontFamily: 'Avenir Next'}}>{this.state.currentlyPlaying.song}</Text>
+            <Text style={{fontSize: 16, color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'Avenir Next'}}>{this.state.currentlyPlaying.artist}</Text>
           </View>
       )
     }
@@ -56,7 +56,7 @@ class Player extends Component {
         </View>
 
         <View style={{ flex: 1, backgroundColor: 'transparent'}}>
-          <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 92, fontWeight: 'bold', marginBottom: 16}}>Now Playing</Text>
+          <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 92, fontWeight: 'bold', marginBottom: 16, fontFamily: 'Avenir-Black'}}>Now Playing</Text>
           {this.state.currentlyPlaying !== "" ? this.renderCurrentlyPlaying() : null}
         </View>
 

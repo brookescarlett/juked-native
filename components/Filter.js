@@ -48,7 +48,8 @@ class Playlist extends Component {
     newSongRef.set({
       song: song,
       user: this.props.name,
-      hasBeenPlayed: false
+      hasBeenPlayed: false,
+      id: newSongRef.key
     }, () => {
       AlertIOS.alert(
         `Request sent to @${this.state.dj}`,
@@ -67,7 +68,7 @@ class Playlist extends Component {
         </View>
 
         <View style={{ flex: 1, backgroundColor: 'transparent'}}>
-          <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 150, marginLeft: 16, marginBottom: 16, textAlign: 'left', fontWeight: 'bold'}}>Search</Text>
+          <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 150, marginLeft: 16, marginBottom: 16, textAlign: 'left', fontWeight: 'bold', fontFamily: 'Avenir-Black'}}>Search</Text>
 
           <TextInput placeholder="  Send a request to @theDJ" onChangeText={(text) => this.setState({filter: text})} onEndEditing={this.sendToDJ} style=
             {{backgroundColor: 'rgba(255, 255, 255, 0.4)', borderColor: 'rgba(255, 255, 255, 0.4)', borderWidth: 1, borderRadius: 100, color: 'rgba(30, 29, 70, 1)', marginLeft: 16, marginRight: 16, width: 300, paddingTop: 8, paddingBottom: 8, fontSize: 14}} placeHolderStyle={{color:'rgba(30, 29, 70, 1)', position: 'absolute'}} />
@@ -84,10 +85,5 @@ const mapStateToProps = state => {
   return {name: state.name, chatroom: state.chatroom}
 }
 
-// const mapDispatchToProps = dispatch => {
-//   return bindActionCreators({
-//     AddSong, UpdateSong, RemoveSong, AddSongForRecs
-//   }, dispatch)
-// }
 
 export default connect(mapStateToProps)(Playlist)

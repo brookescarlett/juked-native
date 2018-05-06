@@ -57,21 +57,23 @@ class LogInForm extends Component {
         </View>
 
         <View style={{ flex: 1, backgroundColor: 'transparent', alignItems: 'center', justifyContent: 'center'}}>
+          <Text style={{fontFamily: 'Avenir-Black', fontSize: 30, color: 'rgba(255, 255, 255, 0.9)', marginBottom: 40}}>juked.</Text>
+
           <TextInput
-          style={{height: 40, width: 300, marginBottom: 20, backgroundColor: 'rgba(255, 255, 255, 0.4)', borderColor: 'rgba(255, 255, 255, 0.4)', borderWidth: 1, borderRadius: 100}}
+          style={{height: 40, width: 300, marginBottom: 20, backgroundColor: 'rgba(255, 255, 255, 0.4)', borderColor: 'rgba(255, 255, 255, 0.4)', borderWidth: 1, borderRadius: 100, fontFamily: 'Avenir Next'}}
           placeholder="   Enter your name"
           onChangeText={(text) => this.setState({name: text})}
           />
 
           <TextInput
-          style={{height: 40, width: 300, backgroundColor: 'rgba(255, 255, 255, 0.4)', borderColor: 'rgba(255, 255, 255, 0.4)', borderWidth: 1, borderRadius: 100, marginBottom: 40}}
+          style={{height: 40, width: 300, backgroundColor: 'rgba(255, 255, 255, 0.4)', borderColor: 'rgba(255, 255, 255, 0.4)', borderWidth: 1, borderRadius: 100, marginBottom: 40, fontFamily: 'Avenir Next'}}
           placeHolderStyle={{color:'rgba(30, 29, 70, 1)', position: 'absolute'}}
           placeholder="   Enter your room name"
           onChangeText={(text) => this.setState({room: text})}
           />
 
-          <Button block light onPress={this.onPressButton} style={{backgroundColor: 'rgb(30, 29, 70)', borderRadius: 100}}>
-            <Text style={{color: 'rgba(255, 255, 255, 0.9)'}}>JOIN</Text>
+          <Button block light onPress={this.onPressButton} style={{backgroundColor: 'rgb(30, 29, 70)', borderRadius: 100}} disabled={!this.state.name || !this.state.room}>
+            <Text style={{color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'Avenir-Black'}}>JOIN</Text>
           </Button>
 
 

@@ -41,21 +41,22 @@ class SongItem extends Component {
   }
 
   render(){
+    let clear = 'rgba(255, 255, 255, 0)'
     return(
       <View style={{ flex: 1, backgroundColor: 'transparent', width: 300, marginBottom: 8}}>
-        <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}>@{this.props.datum.user}</Text>
-        <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}>{this.props.datum.song}</Text>
+        <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'Avenir Next'}}>@{this.props.datum.user}</Text>
+        <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'Avenir Next'}}>{this.props.datum.song}</Text>
         <View style={{ flex: 1, backgroundColor: 'transparent', flexDirection: 'row'}}>
-          <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}>{this.props.datum.artist}</Text>
+          <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'Avenir Next'}}>{this.props.datum.artist}</Text>
 
           <View style={{ flex: 1, backgroundColor: 'transparent', flexDirection: 'row', justifyContent: 'flex-end'}}>
 
-            <Icon.Button name="like" backgroundColor="transparent" onPress={this.handleUpVote}>
-              <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}>{this.props.datum.upVote}</Text>
+            <Icon.Button name="like" backgroundColor="transparent" onPress={this.handleUpVote} underlayColor='rgba(255, 255, 255, 0)'>
+              <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'Avenir Next'}}>{this.props.datum.upVote}</Text>
             </Icon.Button>
 
             <Icon.Button name="dislike" backgroundColor="transparent" onPress={this.handleDownVote}>
-              <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)'}}t>{this.props.datum.downVote}</Text>
+              <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'Avenir Next'}}t>{this.props.datum.downVote}</Text>
             </Icon.Button>
           </View>
 

@@ -48,8 +48,8 @@ class Userlist extends Component {
         </View>
 
         <View style={{ flex: 1, backgroundColor: 'transparent'}}>
-          <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 92, fontWeight: 'bold', marginBottom: 16}}>Guests</Text>
-          <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 8, color: 'rgb(30, 29, 70)'}}>{this.state.dj !== "" ? `DJ: ${this.state.dj.name}` : "to play music, you'll need a dj!"}</Text>
+          <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 92, fontWeight: 'bold', marginBottom: 16, fontFamily: 'Avenir-Black'}}>Guests</Text>
+          <Text style={{fontSize: 24, fontWeight: 'bold', marginBottom: 8, color: 'rgb(30, 29, 70)', fontFamily: 'Avenir Next'}}>{this.state.dj !== "" ? `DJ: ${this.state.dj.name}` : "to play music, you'll need a dj!"}</Text>
           <ScrollView style={{ flex: 1, backgroundColor: 'transparent'}}>
             {this.renderUsers()}
           </ScrollView>
