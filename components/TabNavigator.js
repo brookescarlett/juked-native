@@ -28,9 +28,7 @@ export default TabNavigator({
         } else if (routeName === 'Player') {
           iconName = `ios-play${focused ? '' : '-outline'}`;
         }
-
-        // You can return any component that you like here! We usually use an
-        // icon component from react-native-vector-icons
+        
         return <Ionicons name={iconName} size={25} color={tintColor} />;
       },
     }),

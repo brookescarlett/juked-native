@@ -14,29 +14,29 @@ class Userlist extends Component {
   }
 
   componentDidMount = () => {
-    firebase.database().ref().child(`${this.props.chatroom}`).child('users').orderByKey().on('child_added', snap => {
-      if (snap.val().dj === true) {
-        this.setState({
-          dj: snap.val()
-        })
-      } else if(snap.val() === 'juked') {
-        // continue
-      } else {
-        this.setState({
-          usersArray: [...this.state.usersArray, snap.val()]
-        })
-      }
-    })
-  }
+      firebase.database().ref().child(`${this.props.chatroom}`).child('users').orderByKey().on('child_added', snap => {
+        if (snap.val().dj === true) {
+          this.setState({
+            dj: snap.val()
+          })
+        } else if(snap.val() === 'juked') {
+          // continue
+        } else {
+          this.setState({
+            usersArray: [...this.state.usersArray, snap.val()]
+          })
+        }
+      })
+    }
 
-  onlyUnique = (value, index, self) => {
-    return self.indexOf(value) === index
-  }
+    onlyUnique = (value, index, self) => {
+      return self.indexOf(value) === index
+    }
 
-  renderUsers = () => {
-    let uniques = this.state.usersArray.filter(this.onlyUnique)
-    return uniques.map(user => <User key={ UUID() } datum={user}/>)
-  }
+    renderUsers = () => {
+      let uniques = this.state.usersArray.filter(this.onlyUnique)
+      return uniques.map(user => <User key={ UUID() } datum={user}/>)
+    }
 
   render(){
     return(

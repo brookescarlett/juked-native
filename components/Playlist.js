@@ -43,7 +43,7 @@ class Playlist extends Component {
 
           <View style={{ flex: 1, backgroundColor: 'transparent'}}>
             <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 92, fontWeight: 'bold', marginBottom: 16, fontFamily: 'Avenir-Black'}}>Playlist</Text>
-            <ScrollView style={{ flex: 1, backgroundColor: 'transparent'}}>
+            <ScrollView style={{ flex: 1, backgroundColor: 'transparent', marginBottom: 16}}>
               {this.renderStore()}
             </ScrollView>
           </View>

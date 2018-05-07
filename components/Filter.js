@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {View, TextInput, Image, Text, AlertIOS, Alert } from 'react-native'
 import {Item, Input} from 'native-base'
 import { connect } from 'react-redux'
-
 // import {bindActionCreators} from 'redux'
 
 import * as firebase from 'firebase'
@@ -17,13 +16,29 @@ class Playlist extends Component {
     super(props);
     this.state = {
       filter: '  Enter a request to @theDJ',
-      dj: ''
+      dj: '',
+      alertSong: ''
      }
+
+     console.log(props.name);
   }
 
   componentDidMount = () => {
     this.getDJName()
+
+    let name = this.props.name
+    firebase.database().ref().child(`${this.props.chatroom}`).child('requests').orderByKey().on('child_changed', snap => {
+      if (snap.val().user === name && snap.val().willBePlayed === 'true') {
+        AlertIOS.alert(
+          `Your request to ${this.state.dj} has been recognized!`,
+          `@theDJ will add ${snap.val().song} to the queue`
+        )
+      }
+    })
+
   }
+
+
 
   sendToDJ = () => {
     this.fetchFunction(this.state.filter)
@@ -48,7 +63,7 @@ class Playlist extends Component {
     newSongRef.set({
       song: song,
       user: this.props.name,
-      hasBeenPlayed: false,
+      willBePlayed: false,
       id: newSongRef.key
     }, () => {
       AlertIOS.alert(

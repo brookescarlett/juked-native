@@ -55,7 +55,7 @@ class SongItem extends Component {
               <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'Avenir Next'}}>{this.props.datum.upVote}</Text>
             </Icon.Button>
 
-            <Icon.Button name="dislike" backgroundColor="transparent" onPress={this.handleDownVote}>
+            <Icon.Button name="dislike" backgroundColor="transparent" onPress={this.handleDownVote} underlayColor='rgba(255, 255, 255, 0)'>
               <Text style={{fontSize: 18, color: 'rgba(255, 255, 255, 0.9)', fontFamily: 'Avenir Next'}}t>{this.props.datum.downVote}</Text>
             </Icon.Button>
           </View>
