@@ -9,7 +9,7 @@ import Player from './Player'
 import Filter from './Filter'
 
 export default TabNavigator({
-  Search: {screen: Filter},
+  Suggest: {screen: Filter},
   Playlist: { screen: Playlist },
   Guests: { screen: UserList },
   Player: { screen: Player },
@@ -18,7 +18,7 @@ export default TabNavigator({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
         let iconName;
-        if (routeName === 'Search') {
+        if (routeName === 'Suggest') {
           iconName = `ios-search${focused ? '' : '-outline'}`;
         }
         else if (routeName === 'Playlist') {
@@ -28,7 +28,7 @@ export default TabNavigator({
         } else if (routeName === 'Player') {
           iconName = `ios-play${focused ? '' : '-outline'}`;
         }
-        
+
         return <Ionicons name={iconName} size={25} color={tintColor} />;
       },
     }),

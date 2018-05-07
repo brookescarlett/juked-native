@@ -83,7 +83,7 @@ class Playlist extends Component {
         </View>
 
         <View style={{ flex: 1, backgroundColor: 'transparent'}}>
-          <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 150, marginLeft: 16, marginBottom: 16, textAlign: 'left', fontWeight: 'bold', fontFamily: 'Avenir-Black'}}>Search</Text>
+          <Text style={{color: 'rgba(255, 255, 255, 0.8)', fontSize: 36, marginTop: 150, marginLeft: 16, marginBottom: 16, textAlign: 'left', fontWeight: 'bold', fontFamily: 'Avenir-Black'}}>Suggest</Text>
 
           <TextInput placeholder="  Send a request to @theDJ" onChangeText={(text) => this.setState({filter: text})} onEndEditing={this.sendToDJ} style=
             {{backgroundColor: 'rgba(255, 255, 255, 0.4)', borderColor: 'rgba(255, 255, 255, 0.4)', borderWidth: 1, borderRadius: 100, color: 'rgba(30, 29, 70, 1)', marginLeft: 16, marginRight: 16, width: 300, paddingTop: 8, paddingBottom: 8, fontSize: 14}} placeHolderStyle={{color:'rgba(30, 29, 70, 1)', position: 'absolute'}} />
