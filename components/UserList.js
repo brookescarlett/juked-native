@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import User from './User'
 import UUID from 'uuid'
 
-import {ScrollView, View, TextInput, Image, Text, PropTypes } from 'react-native'
+import {NavigatorIOS, View, TextInput, Image, ScrollView, Button, Text, PropTypes } from 'react-native'
 
 class Userlist extends Component {
 
@@ -14,29 +14,24 @@ class Userlist extends Component {
   }
 
   componentDidMount = () => {
-      firebase.database().ref().child(`${this.props.chatroom}`).child('users').orderByKey().on('child_added', snap => {
-        if (snap.val().dj === true) {
-          this.setState({
-            dj: snap.val()
-          })
-        } else if(snap.val() === 'juked') {
-          // continue
-        } else {
-          this.setState({
-            usersArray: [...this.state.usersArray, snap.val()]
-          })
-        }
-      })
-    }
+    firebase.database().ref().child(`${this.props.chatroom}`).child('users').orderByKey().on('child_added', snap => {
+      if (snap.val().dj === true) {
+        this.setState({
+          dj: snap.val()
+        })
+      } else {
+        console.log(snap.val());
+        this.setState(prevState => ({
+          usersArray: [...prevState.usersArray, snap.val()]
+        }))
+      }
+    })
+  }
 
-    onlyUnique = (value, index, self) => {
-      return self.indexOf(value) === index
-    }
+  renderUsers = () => {
+    return this.state.usersArray.map(user => <User key={ UUID() } datum={user}/>)
+  }
 
-    renderUsers = () => {
-      let uniques = this.state.usersArray.filter(this.onlyUnique)
-      return uniques.map(user => <User key={ UUID() } datum={user}/>)
-    }
 
   render(){
     return(
@@ -58,6 +53,8 @@ class Userlist extends Component {
       </View>
     )
   }
+
+
 }
 
 const mapStateToProps = state => {
